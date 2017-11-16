@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Poweroff/Reboot/Recovery tile -->
+    <string name="quick_settings_poweroff_label">Apagar</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+
+</resources>
