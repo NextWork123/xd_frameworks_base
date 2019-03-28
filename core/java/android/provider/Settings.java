@@ -5828,7 +5828,6 @@ public final class Settings {
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
          * the setting value. See an example above.
          */
-
         /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
@@ -5845,6 +5844,16 @@ public final class Settings {
          * @hide
          */
         public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /**
+        * @hide
+        */
+        public static final String SMART_CHARGING = "smart_charging";
+
+        /**
+        * @hide
+        */
+        public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
 
         /**
          * These are all public system settings
