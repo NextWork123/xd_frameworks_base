@@ -151,8 +151,6 @@ class RefreshRateTile @Inject constructor(
         logD("handleUpdateState: secondaryLabel = ${state.secondaryLabel}")
     }
 
-    override fun getMetricsCategory(): Int = MetricsEvent.SPARK_QS_TILES
-
     override protected fun handleDestroy() {
         logD("handleDestroy")
         deviceConfigListener.stopListening()
