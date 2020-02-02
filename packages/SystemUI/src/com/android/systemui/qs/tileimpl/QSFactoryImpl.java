@@ -47,6 +47,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MicrophoneToggleTile;
+import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.OneHandedModeTile;
@@ -101,6 +102,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<QRCodeScannerTile> mQRCodeScannerTileProvider;
     private final Provider<OneHandedModeTile> mOneHandedModeTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
 
@@ -141,6 +143,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<OneHandedModeTile> oneHandedModeTileProvider,
             Provider<ColorCorrectionTile> colorCorrectionTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
+            Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider) {
         mQsHostLazy = qsHostLazy;
@@ -175,6 +178,7 @@ public class QSFactoryImpl implements QSFactory {
         mOneHandedModeTileProvider = oneHandedModeTileProvider;
         mColorCorrectionTileProvider = colorCorrectionTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
+        mMonoToggleTileProvider = monoToggleTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
     }
@@ -257,6 +261,8 @@ public class QSFactoryImpl implements QSFactory {
             // Additional tiles.
             case "caffeine":
                 return mCaffeineTileProvider.get();
+            case "mono":
+                return mMonoToggleTileProvider.get();
         }
 
         // Custom tiles
