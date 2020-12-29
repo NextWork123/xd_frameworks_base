@@ -75,6 +75,7 @@ public class RecordingService extends Service implements MediaRecorder.OnInfoLis
     private static final String ACTION_SHARE = "com.android.systemui.screenrecord.SHARE";
     private static final String ACTION_DELETE = "com.android.systemui.screenrecord.DELETE";
     private static final String PERMISSION_SELF = "com.android.systemui.permission.SELF";
+    private static final String ACTION_DELETE = "com.android.systemui.screenrecord.DELETE";
 
     private final RecordingServiceBinder mBinder;
     private final RecordingController mController;
@@ -199,11 +200,6 @@ public class RecordingService extends Service implements MediaRecorder.OnInfoLis
 
                 // Close quick shade
                 sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-                break;
-            case ACTION_SHOW_DIALOG:
-                if (mController != null) {
-                    mController.createScreenRecordDialog(this, null).show();
-                }
                 break;
             case ACTION_DELETE:
                 // Close quick shade
