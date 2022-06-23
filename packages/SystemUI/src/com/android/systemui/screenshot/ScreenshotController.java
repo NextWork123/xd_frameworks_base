@@ -464,16 +464,8 @@ public class ScreenshotController {
     @MainThread
     void takeScreenshotPartial(ComponentName topComponent,
             final Consumer<Uri> finisher, RequestCallback requestCallback) {
-        Assert.isMainThread();
-        mScreenshotView.reset();
-        mCurrentRequestCallback = requestCallback;
-
-        attachWindow();
-        mWindow.setContentView(mScreenshotView);
-        mScreenshotView.requestApplyInsets();
-
-        mScreenshotView.takePartialScreenshot(
-                rect -> takeScreenshotInternal(topComponent, finisher, rect));
+        startPartialScreenshotActivity();
+        finisher.accept(null);
     }
 
     /**
@@ -634,6 +626,13 @@ public class ScreenshotController {
         return screenshot;
     }
 
+    private Bitmap captureScreenshot() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getDefaultDisplay().getRealMetrics(displayMetrics);
+        return captureScreenshot(
+                new Rect(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels));
+    }
+
     private void saveScreenshot(Bitmap screenshot, Consumer<Uri> finisher, Rect screenRect,
             Insets screenInsets, ComponentName topComponent, boolean showFlash) {
         withWindowAttached(() ->
@@ -786,7 +785,6 @@ public class ScreenshotController {
         ScrollCaptureController.BitmapScreenshot bitmapScreenshot =
             new ScrollCaptureController.BitmapScreenshot(mContext, newScreenshot);
 
-        mLongScreenshotHolder.setNeedsMagnification(false);
         startLongScreenshotActivity(bitmapScreenshot);
     }
 
@@ -843,7 +841,6 @@ public class ScreenshotController {
                             return;
                         }
 
-                        mLongScreenshotHolder.setNeedsMagnification(true);
                         startLongScreenshotActivity(longScreenshot);
                     }, mMainExecutor);
                 });
