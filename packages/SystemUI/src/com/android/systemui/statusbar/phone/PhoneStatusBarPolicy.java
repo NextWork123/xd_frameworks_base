@@ -243,6 +243,7 @@ public class PhoneStatusBarPolicy
         mDisplayId = displayId;
         mSharedPreferences = sharedPreferences;
         mDateFormatUtil = dateFormatUtil;
+        onUserSetupChanged();
     }
 
     /** Initialize the object after construction. */
