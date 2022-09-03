@@ -60,6 +60,16 @@ public class xdUtils {
         return wifi.isConnected();
     }
 
+    /**
+    * Returns whether the device is voice-capable (meaning, it is also a phone).
+    */
+    public static boolean isVoiceCapable(Context context) {
+        TelephonyManager telephony =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable();
+    }
+
+
 	// Returns today's passed time in Millisecond
     public static long getTodayMillis() {
         final long passedMillis;
