@@ -108,12 +108,7 @@ public class RebootTile extends QSTileImpl<BooleanState> {
     public CharSequence getTileLabel() {
         return mContext.getString(R.string.quick_settings_reboot_label);
     }
-
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.PRIME_ELEMENTS;
-    }
-
+    
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
         if (mRebootToRecovery == 1) {
