@@ -569,16 +569,6 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
         return true;
     }
 
-    private boolean updateLinkNotificationConfigW() {
-        boolean linkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
-        if (mState.linkedNotification == linkNotificationWithVolume) {
-            return false;
-        }
-        mState.linkedNotification = linkNotificationWithVolume;
-        return true;
-    }
-
     private boolean updateEffectsSuppressorW(ComponentName effectsSuppressor) {
         if (Objects.equals(mState.effectsSuppressor, effectsSuppressor)) return false;
         mState.effectsSuppressor = effectsSuppressor;
