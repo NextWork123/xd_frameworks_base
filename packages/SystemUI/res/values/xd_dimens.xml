@@ -22,4 +22,7 @@
     <dimen name="qs_top_brightness_margin_bottom">10dp</dimen>
     <dimen name="qs_bottom_brightness_margin_top">10dp</dimen>
 
+    <!-- Screen Recording Dot -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
+
 </resources>
