@@ -70,9 +70,8 @@ public class PixelPropsUtils {
             "com.google.android.android.contacts",
             "com.google.android.android.apps.messaging",
             "com.google.android.gm",
-	    "com.google.android.as",
-	    "com.google.android.inputmethod.latin"
-
+            "com.google.android.apps.subscriptions.red",
+            "com.google.android.inputmethod.latin"
     };
 
     // Packages to Keep with original device
