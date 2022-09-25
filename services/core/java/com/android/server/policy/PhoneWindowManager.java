@@ -635,9 +635,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private GestureLauncherService mGestureLauncherService;
 
     private boolean mLockNowPending = false;
-
-    private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
-
     private PocketManager mPocketManager;
     private PocketLock mPocketLock;
     private boolean mPocketLockShowing;
