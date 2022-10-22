@@ -30,7 +30,7 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     public static final String PACKAGE_GMS = "com.google.android.gms";
-    private static final String DEVICE = "org.pixelexperience.device";
+    private static final String DEVICE = "org.voidui.device";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
 
@@ -152,8 +152,7 @@ public class PixelPropsUtils {
     // Packages to Spoof as Mi 11 Ultra
     private static final Map<String, Object> propsToChangeMI11;
     private static final String[] packagesToChangeMI11 = {
-            "com.mobile.legends",
-            "com.levelinfinite.hotta.gp"
+            "com.mobile.legends"
     };
 
     private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
@@ -206,6 +205,19 @@ public class PixelPropsUtils {
         propsToChangeMI11.put("MODEL", "M2102K1G");
     }
 
+    private static void setPropsForSamsung(String packageName) {
+        for (Map.Entry<String, Object> prop : propsToChangePixel6.entrySet()) {
+            String key = prop.getKey();
+            Object value = prop.getValue();
+            if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
+                if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
+                continue;
+            }
+            if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
+            setPropValue(key, value);
+        }
+    }
+
     public static void setProps(Application app) {
         final String packageName = app.getPackageName();
         final String processName = app.getProcessName();
@@ -243,9 +255,9 @@ public class PixelPropsUtils {
             }
         }
         if (sIsGms) {
-                     setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
-                     setPropValue("MODEL", "angler");
-                    } else {
+                setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
+                setPropValue("MODEL", "angler");
+        } else {
             if (Arrays.asList(packagesToChangeROG1).contains(packageName)) {
                 if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeROG1.entrySet()) {
