@@ -57,4 +57,7 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Clock</string>
 
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Long press for partial screenshot</string>
+
 </resources>
