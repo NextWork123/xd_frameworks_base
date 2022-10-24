@@ -1136,13 +1136,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         }
 
         @Override
-        public boolean onLongPress() {
-            takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION);
-
-            return true;
-        }
-
-        @Override
         public boolean showDuringKeyguard() {
             return true;
         }
