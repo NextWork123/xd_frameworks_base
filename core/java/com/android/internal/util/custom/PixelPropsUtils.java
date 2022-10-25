@@ -50,8 +50,8 @@ public class PixelPropsUtils {
             "com.google.android.apps.photos"
     };
 
-    // Packages to Spoof as Pixel 6 Pro
-    private static final Map<String, Object> propsToChangePixel6;
+    // Packages to Spoof as Pixel 7 Pro
+    private static final Map<String, Object> propsToChangePixel7;
     private static final String[] extraPackagesToChange = {
             "com.android.chrome",
             "com.android.vending",
@@ -162,13 +162,13 @@ public class PixelPropsUtils {
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
-        propsToChangePixel6 = new HashMap<>();
-        propsToChangePixel6.put("BRAND", "google");
-        propsToChangePixel6.put("MANUFACTURER", "Google");
-        propsToChangePixel6.put("DEVICE", "raven");
-        propsToChangePixel6.put("PRODUCT", "raven");
-        propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:13/TP1A.221005.002/9012097:user/release-keys");
+        propsToChangePixel7 = new HashMap<>();
+        propsToChangePixel7.put("BRAND", "google");
+        propsToChangePixel7.put("MANUFACTURER", "Google");
+        propsToChangePixel7.put("DEVICE", "cheetah");
+        propsToChangePixel7.put("PRODUCT", "cheetah");
+        propsToChangePixel7.put("MODEL", "Pixel 7 Pro");
+        propsToChangePixel7.put("FINGERPRINT", "google/cheetah/cheetah:13/T1B3.221003.003/9173718:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -206,7 +206,7 @@ public class PixelPropsUtils {
     }
 
     private static void setPropsForSamsung(String packageName) {
-        for (Map.Entry<String, Object> prop : propsToChangePixel6.entrySet()) {
+        for (Map.Entry<String, Object> prop : propsToChangePixel7.entrySet()) {
             String key = prop.getKey();
             Object value = prop.getValue();
             if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
@@ -232,7 +232,7 @@ public class PixelPropsUtils {
         if (!isPixelDevice &&
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
                 || Arrays.asList(extraPackagesToChange).contains(packageName))) {
-            Map<String, Object> propsToChange = propsToChangePixel6;
+            Map<String, Object> propsToChange = propsToChangePixel7;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
                 propsToChange = propsToChangePixel5;
