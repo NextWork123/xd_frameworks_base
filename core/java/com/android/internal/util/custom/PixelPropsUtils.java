@@ -93,6 +93,7 @@ public class PixelPropsUtils {
         "com.google.android.apps.wearables.maestro.companion",
         "com.google.android.apps.recorder",
         "com.google.android.youtube",
+        "com.google.android.euicc",
         "com.google.android.apps.youtube.kids",
         "com.google.android.apps.youtube.music",
         "com.google.android.dialer"
