@@ -819,6 +819,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
             DeviceStateManager deviceStateManager,
             DreamOverlayStateController dreamOverlayStateController,
             WiredChargingRippleController wiredChargingRippleController,
+            IDreamManager dreamManager,
             TunerService tunerService,
             SysUiState sysUiState,
             BurnInProtectionController burnInProtectionController) {
